@@ -1,23 +1,23 @@
 import { Component } from 'react';
 
 class GroceryForm extends Component { 
-  state = { itemName: "", complete: false }
+  state = { title: "", complete: false }
   handleChange = (e) => {
-    const { itemName, value } = e.target
-    this.setState({ [name]: value })
+    const { title, value } = e.target
+    this.setState({ [title]: value })
   }
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addTodo(this.state)
-    this.setState({ itemName: "", complete: false })
+    this.props.addGrocery(this.state)
+    this.setState({ title: "", complete: false })
   }
   render() {
-    const { itemName } = this.state
+    const { title } = this.state
     return(
       <form onSubmit={this.handleSubmit}>
         <input
-          value={itemName}
-          name="itemName"
+          value={title}
+          name="title"
           onChange={this.handleChange}
           required
           placeholder="add an item"

@@ -9,14 +9,14 @@ class Grocery extends Component {
   }
   render() {
     const { editing } =this.state
-    const { itemName, id, removeItem, updateItem } = this.props 
+    const { title, id, removeItem, updateItem } = this.props 
     return(
       <div>
-        <h1>{itemName}</h1>
+        <h1>{title}</h1>
         <button onClick={() => removeItem(id)}>Delete</button>
         {
         editing ?
-        <groceryForm {...this.props} thisThingHere={this.thisThingHere} />
+        <GroceryForm {...this.props} thisThingHere={this.thisThingHere} />
         :
         <button onClick={() => this.thisThingHere()}>Edit</button>
        }

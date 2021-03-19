@@ -1,11 +1,11 @@
 import Grocery from './Grocery';
-const GroceryList = ({ Groceries, updateComplete }) => {
+const GroceryList = ({ grocerys, updateComplete }) => {
   return (
     <>
       <h1>Groceries</h1>
       {
         <ul>
-          { groceries.map( g => (
+          { grocerys.map( g => (
             <Grocery key={g.id} {...g} updateComplete={updateComplete} />
           ))}
         </ul>
