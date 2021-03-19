@@ -25,16 +25,24 @@ class App extends Component {
    updateComplete = (id) => {
     const { grocerys } = this.state
     this.setState({
-      grocerys: grocerys.map( t => {
-        if (t.id === id) {
+      grocerys: grocerys.map( g => {
+        if (g.id === id) {
           return {
-            ...t, 
-            complete: !t.complete
+            ...g, 
+            complete: !g.complete
           }
         }
+      
+    removeItem = (id) => {
+       const grocerys = this.state.grocerys.filter( c => {
+        if (c.id !== id) {
+          return c
+        }
+      })
+      this.setState({ grocerys: [...grocerys] })
+        } 
 
-
-        return t
+        return 
       })
     })
   }
@@ -42,9 +50,15 @@ class App extends Component {
       const { grocerys } = this.state
       return (
         <>
-          <GroceryList grocerys={grocerys} updateComplete={this.updateComplete} />
+          <GroceryList  
+           grocerys={grocerys} 
+           updateComplete={this.updateComplete} 
+           removeItem={this.removeItem} />
           <GroceryForm addGrocery={this.addGrocery} />
+          
+          
         </>
+        
       )
   }
 

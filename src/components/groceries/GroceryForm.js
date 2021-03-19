@@ -3,8 +3,8 @@ import { Component } from 'react';
 class GroceryForm extends Component { 
   state = { title: "", complete: false }
   handleChange = (e) => {
-    const { title, value } = e.target
-    this.setState({ [title]: value })
+    const { name, value } = e.target
+    this.setState({ [name]: value })
   }
   handleSubmit = (e) => {
     e.preventDefault()
